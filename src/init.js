@@ -24,10 +24,27 @@ $(document).ready(function() {
 
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
+      window.innerHeight * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  $('.lineUpButton').on('click', function(event) {
+    makeDancer.prototype.lineUp();
+  });
+
+  $('.dancePartyButton').on('click', function(event) {
+    makeDancer.prototype.danceParty();
+  });
+
+  setInterval(makeDancer.prototype.zombieTouch, 1000);
+
 });
+
+var makeApocalypse = function() {
+  $('body').css('background', 'url("img/background.jpg") no-repeat 50% 50% fixed');
+  //window.alert('You have summoned the appocalypse!');
+};
 
